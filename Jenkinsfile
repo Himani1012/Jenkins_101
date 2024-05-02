@@ -50,6 +50,7 @@ pipeline {
         }
         stage('Integration Tests on Staging') {
             steps {
+                sh 'mvn verify -Pintegration-tests'
                 // Run integration tests on staging environment
             }
         }
