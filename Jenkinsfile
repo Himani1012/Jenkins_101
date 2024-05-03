@@ -32,7 +32,7 @@ pipeline {
                             emailext attachLog :true, body:' failure unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
                         }
                     }
-                }
+                
         stage('Code Analysis') {
                     steps {
                         echo 'mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken'
@@ -61,7 +61,7 @@ pipeline {
                             echo 'Security Scan failed!'
                         }
                     }
-                }
+                
         stage('Deploy to Staging') {
                     steps {
                         echo 'eb deploy staging'
@@ -104,4 +104,5 @@ pipeline {
                         }
                     }
         }
+}
 }
