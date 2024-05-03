@@ -27,12 +27,18 @@ pipeline {
                         always{
                         success {
                             emailext
-                            {attachLog :true, body:' success unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
+                            {
+                                subject: "Pipeline status: $(currentBuild.result)",
+                                body: "$(currentBuild.result)"
+                                to: 'himanipanday0008@gmail.com'
                             }
                                 
                         }
                         failure {
-                            emailext {attachLog :true, body:' failure unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
+                            emailext {
+                                subject: "Pipeline status: $(currentBuild.result)",
+                                body: "$(currentBuild.result)"
+                                to: 'himanipanday0008@gmail.com'
                         }
                         }
                         }
