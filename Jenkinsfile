@@ -27,11 +27,11 @@ pipeline {
                     post {
                         always{
                         success {
-                            emailext body: 'successful.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
+                            mail bcc: '', body: 'success ', cc: '', from: '', replyTo: '', subject: 'Results for testing', to: 'himanipanday0008@gmail.com'
                                 
                         }
                         failure {
-                            emailext body: 'failure.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
+                            mail bcc: '', body: 'failure ', cc: '', from: '', replyTo: '', subject: 'Results for testing', to: 'himanipanday0008@gmail.com'
                         
                         }
                         }
