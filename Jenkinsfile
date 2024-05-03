@@ -29,17 +29,19 @@ pipeline {
                         success {
                             emailext
                             {
-                                subject: 'Pipeline Status'
-                                body: 'success'
-                                to: 'himanipanday0008@gmail.com'
+                                to: "himanipanday0008@gmail.com",
+                                subject: "unit and integration testing",
+                                body: "success"
+                                attachLog: true
                             }
                                 
                         }
                         failure {
                             emailext {
-                                subject: 'Pipeline status'
-                                body: 'failure'
-                                to: 'himanipanday0008@gmail.com'
+                               to: "himanipanday0008@gmail.com",
+                                subject: "unit and integration testing",
+                                body: "failure"
+                                attachLog: true
                         }
                         
                         }
