@@ -24,13 +24,17 @@ pipeline {
                         echo 'mvn test'
                     }
                     
-                    post {
+                   post {
                             success {
-                            emailext body: 'successful.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
-                                
-                            }
+                            mail to :"himanipanday0008@gmail.com",
+                            subject: "Unit integration tests results",
+                            body:"Test was successful"
+                            }    
+                            
                         failure {
-                            emailext body: 'failure.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
+                            mail to :"himanipanday0008@gmail.com",
+                            subject: "Unit integration test results  ",
+                            body:"Test failed"
                         }
                       
                     
@@ -100,13 +104,17 @@ pipeline {
                         echo 'eb deploy production'
                     }
                     
-                    post {
+                   post {
                             success {
-                            emailext body: 'successful.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
-                                
-                            }
+                            mail to :"himanipanday0008@gmail.com",
+                            subject: "Results",
+                            body:" successful"
+                            }    
+                            
                         failure {
-                            emailext body: 'failure.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
+                            mail to :"himanipanday0008@gmail.com",
+                            subject: "Results",
+                            body:"failed"
                         }
                       
                     
