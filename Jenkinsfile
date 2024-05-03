@@ -20,8 +20,7 @@ pipeline {
         }
             stage('Unit and Integration Tests') {
                     steps {
-                        echo 'mvn test'
-                    
+                       
                     
                     post {
                         success {
@@ -37,7 +36,7 @@ pipeline {
                 
         stage('Code Analysis') {
                     steps {
-                        echo 'mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken'
+                        
                     
                     
                     post {
@@ -52,7 +51,7 @@ pipeline {
                 }
         stage('Security Scan') {
                     steps {
-                        echo 'running sast using sonarqube'
+                        
                     
                     
                     post {
@@ -68,7 +67,7 @@ pipeline {
                 
         stage('Deploy to Staging') {
                     steps {
-                        echo 'eb deploy staging'
+                        
                     
                     
                     post {
@@ -83,7 +82,7 @@ pipeline {
                 }
         stage('Integration Tests on Staging') {
                     steps {
-                        echo 'Run integration tests on staging'
+                       
                     
                     
                     post {
@@ -98,7 +97,7 @@ pipeline {
                 }
         stage('Deploy to Production') {
                     steps {
-                        echo 'eb deploy production'
+                      
                     
                     
                     post {
