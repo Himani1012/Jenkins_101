@@ -20,6 +20,7 @@ pipeline {
         }
             stage('Unit and Integration Tests') {
                     steps {
+                       
                         echo 'mvn test'
                     }
                     
@@ -28,20 +29,22 @@ pipeline {
                         success {
                             emailext
                             {
-                                subject: 'Pipeline Status: ${currentBuild.result}'
-                                body: "${currentBuild.result}"
+                                subject: 'Pipeline Status'
+                                body: 'success'
                                 to: 'himanipanday0008@gmail.com'
                             }
                                 
                         }
                         failure {
                             emailext {
-                                subject: 'Pipeline status: ${currentBuild.result}'
-                                body: '${currentBuild.result}'
+                                subject: 'Pipeline status'
+                                body: 'failure'
                                 to: 'himanipanday0008@gmail.com'
                         }
+                        
                         }
                         }
+                    
                     }
             }
                 
