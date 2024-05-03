@@ -27,11 +27,12 @@ pipeline {
                             emailext attachLog :true, body:' success unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
                             }
                                 
-                        }
+                        
                         failure {
                             emailext attachLog :true, body:' failure unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
                         }
                     }
+            }
                 
         stage('Code Analysis') {
                     steps {
@@ -56,11 +57,12 @@ pipeline {
                         success {
                              echo 'Security Scan success!'
                             }
-                        }
+                        
                         failure {
                             echo 'Security Scan failed!'
                         }
                     }
+        }
                 
         stage('Deploy to Staging') {
                     steps {
