@@ -24,21 +24,12 @@ pipeline {
                     
                     post {
                         success {
-                            emailext{
-                                to: 'himanipanday0008@gmail.com'
-                                subject: 'Unit and integration Test stage: successful'
-                                body: 'unit and test stage was successful.'
-                                attachlog: true
+                            emailext attachLog :true, body:' success unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
                             }
                                 
                         }
                         failure {
-                            emailext{
-                                to: 'himanipanday0008@gmail.com'
-                                subject: 'Unit and integration Test stage: failure'
-                                body: 'unit and test stage was failure.'
-                                attachlog: true
-                            }
+                            emailext attachLog :true, body:' failure unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
                         }
                     }
                 }
@@ -63,21 +54,11 @@ pipeline {
                     
                     post {
                         success {
-                            emailext {
-                                to: 'himanipanday0008@gmail.com'
-                                subject: 'Unit and integration Test stage: successful'
-                                body: 'unit and test stage was successful.'
-                                attachlog: true
+                             echo 'Security Scan success!'
                             }
                         }
                         failure {
                             echo 'Security Scan failed!'
-                            emailext{
-                                to: 'himanipanday0008@gmail.com'
-                                subject: 'Unit and integration Test stage: failure'
-                                body: 'unit and test stage was failure.'
-                                attachlog: true
-                            }
                         }
                     }
                 }
