@@ -25,13 +25,14 @@ pipeline {
                     }
                     
                     post {
-                        always{
-                        emailext(
-                            subject: "Pipeline Status: ${currentBuild.result}"
-                            body : "${currentBuild.result}"
-                            to: 'himanipanday0008@gmail.com'
-                        )
+                            success {
+                            emailext body: 'successful.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
+                                
+                            }
+                        failure {
+                            emailext body: 'failure.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
                         }
+                      
                     
                     }
             }
@@ -100,12 +101,15 @@ pipeline {
                     }
                     
                     post {
-                        success {
-                            echo 'Deploy to Production successful!'
-                        }
+                            success {
+                            emailext body: 'successful.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
+                                
+                            }
                         failure {
-                            echo 'Deploy to Production failed!'
+                            emailext body: 'failure.', subject: 'result of integration testing', to: 'himanipanday0008@gmail.com'
                         }
+                      
+                    
                     }
         }
 }
