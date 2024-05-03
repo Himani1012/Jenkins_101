@@ -28,7 +28,7 @@ pipeline {
                         always{
                         emailext(
                             subject: "Pipeline Status: ${currentBuild.result}"
-                           
+                            body : "${currentBuild.result}"
                             to: 'himanipanday0008@gmail.com'
                         )
                         }
