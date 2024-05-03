@@ -9,6 +9,7 @@ pipeline {
             }
             
             post {
+
                 success {
                     echo 'Build successful!'
                 }
@@ -23,13 +24,17 @@ pipeline {
                     }
                     
                     post {
+                        always{
                         success {
-                            emailext attachLog :true, body:' success unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
+                            emailext
+                            {attachLog :true, body:' success unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
                             }
                                 
-                        
+                        }
                         failure {
-                            emailext attachLog :true, body:' failure unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
+                            emailext {attachLog :true, body:' failure unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
+                        }
+                        }
                         }
                     }
             }
