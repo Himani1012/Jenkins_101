@@ -24,7 +24,7 @@ pipeline {
                     
                     post {
                         success {
-                            emailtext{
+                            emailext{
                                 to: 'himanipanday0008@gmail.com'
                                 subject: 'Unit and integration Test stage: successful'
                                 body: 'unit and test stage was successful.'
@@ -33,7 +33,7 @@ pipeline {
                                 
                         }
                         failure {
-                            emailtext{
+                            emailext{
                                 to: 'himanipanday0008@gmail.com'
                                 subject: 'Unit and integration Test stage: failure'
                                 body: 'unit and test stage was failure.'
@@ -63,7 +63,7 @@ pipeline {
                     
                     post {
                         success {
-                            emailtext {
+                            emailext {
                                 to: 'himanipanday0008@gmail.com'
                                 subject: 'Unit and integration Test stage: successful'
                                 body: 'unit and test stage was successful.'
@@ -72,7 +72,7 @@ pipeline {
                         }
                         failure {
                             echo 'Security Scan failed!'
-                            emailtext{
+                            emailext{
                                 to: 'himanipanday0008@gmail.com'
                                 subject: 'Unit and integration Test stage: failure'
                                 body: 'unit and test stage was failure.'
