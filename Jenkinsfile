@@ -25,18 +25,18 @@ pipeline {
                     post {
                         success {
                             emailtext{
-                                to: "himanipanday0008@gmail.com"
-                                subject: "Unit and integration Test stage: successful"
-                                body: "unit and test stage was successful."
+                                to: 'himanipanday0008@gmail.com'
+                                subject: 'Unit and integration Test stage: successful'
+                                body: 'unit and test stage was successful.'
                                 attachlog: true
                             }
                                 
                         }
                         failure {
                             emailtext{
-                                to: "himanipanday0008@gmail.com"
-                                subject: "Unit and integration Test stage: failure"
-                                body: "unit and test stage was failure."
+                                to: 'himanipanday0008@gmail.com'
+                                subject: 'Unit and integration Test stage: failure'
+                                body: 'unit and test stage was failure.'
                                 attachlog: true
                             }
                         }
@@ -64,18 +64,18 @@ pipeline {
                     post {
                         success {
                             emailtext {
-                                to: "himanipanday0008@gmail.com"
-                                subject: "Unit and integration Test stage: successful"
-                                body: "unit and test stage was successful."
+                                to: 'himanipanday0008@gmail.com'
+                                subject: 'Unit and integration Test stage: successful'
+                                body: 'unit and test stage was successful.'
                                 attachlog: true
                             }
                         }
                         failure {
                             echo 'Security Scan failed!'
                             emailtext{
-                                to: "himanipanday0008@gmail.com"
-                                subject: "Unit and integration Test stage: failure"
-                                body: "unit and test stage was failure."
+                                to: 'himanipanday0008@gmail.com'
+                                subject: 'Unit and integration Test stage: failure'
+                                body: 'unit and test stage was failure.'
                                 attachlog: true
                             }
                         }
