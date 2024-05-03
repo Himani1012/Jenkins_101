@@ -26,13 +26,13 @@ pipeline {
                     
                     post {
                         always{
-                        success {
-                            mail bcc: '', body: 'success ', cc: '', from: '', replyTo: '', subject: 'Results for testing', to: 'himanipanday0008@gmail.com'
-                                
-                        }
-                        failure {
-                            mail bcc: '', body: 'failure ', cc: '', from: '', replyTo: '', subject: 'Results for testing', to: 'himanipanday0008@gmail.com'
-                        
+                        emailext{
+
+                            subject: "Pipeline Status: ${BUILD_NUMBER}",
+                            body: <html>
+                            <body>
+                            <p> Build status: ${BUILD_STATUS}</p>
+                            </body>
                         }
                         }
                     
