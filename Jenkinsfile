@@ -28,7 +28,7 @@ pipeline {
                         success {
                             emailext
                             {
-                                subject: "Pipeline Status: ${currentBuild.result}",
+                                subject: "Pipeline Status: ${currentBuild.result}"
                                 body: "${currentBuild.result}"
                                 to: 'himanipanday0008@gmail.com'
                             }
@@ -36,7 +36,7 @@ pipeline {
                         }
                         failure {
                             emailext {
-                                subject: "Pipeline status: ${currentBuild.result}",
+                                subject: "Pipeline status: ${currentBuild.result}"
                                 body: "${currentBuild.result}"
                                 to: 'himanipanday0008@gmail.com'
                         }
