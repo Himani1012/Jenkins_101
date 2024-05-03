@@ -6,7 +6,7 @@ pipeline {
             steps {
               // Build the code using Maven
               echo 'mvn clean package'
-            }
+            
             
             post {
                 success {
@@ -17,10 +17,11 @@ pipeline {
                 }
             }
         }
+        }
             stage('Unit and Integration Tests') {
                     steps {
                         echo 'mvn test'
-                    }
+                    
                     
                     post {
                         success {
@@ -32,11 +33,12 @@ pipeline {
                             emailext attachLog :true, body:' failure unit integration & testing', subject: 'result for testing', to: 'himanipanday0008@gmail.com'
                         }
                     }
+            }
                 
         stage('Code Analysis') {
                     steps {
                         echo 'mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken'
-                    }
+                    
                     
                     post {
                         success {
@@ -46,11 +48,12 @@ pipeline {
                             echo 'Code Analysis failed!'
                         }
                     }
+                    }
                 }
         stage('Security Scan') {
                     steps {
                         echo 'running sast using sonarqube'
-                    }
+                    
                     
                     post {
                         success {
@@ -61,11 +64,12 @@ pipeline {
                             echo 'Security Scan failed!'
                         }
                     }
+                    }
                 
         stage('Deploy to Staging') {
                     steps {
                         echo 'eb deploy staging'
-                    }
+                    
                     
                     post {
                         success {
@@ -75,11 +79,12 @@ pipeline {
                             echo 'Deploy to Staging failed!'
                         }
                     }
+                    }
                 }
         stage('Integration Tests on Staging') {
                     steps {
                         echo 'Run integration tests on staging'
-                    }
+                    
                     
                     post {
                         success {
@@ -89,11 +94,12 @@ pipeline {
                             echo 'Integration Tests on Staging failed!'
                         }
                     }
+                    }
                 }
         stage('Deploy to Production') {
                     steps {
                         echo 'eb deploy production'
-                    }
+                    
                     
                     post {
                         success {
@@ -102,6 +108,7 @@ pipeline {
                         failure {
                             echo 'Deploy to Production failed!'
                         }
+                    }
                     }
         }
 }
