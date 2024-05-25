@@ -28,14 +28,12 @@ pipeline {
                             success {
                             mail to :"himanipanday0008@gmail.com",
                             subject: "Unit integration tests results",
-                            "to": true,
                             body:"Test was successful"
                             }    
                             
                         failure {
                             mail to :"himanipanday0008@gmail.com",
                             subject: "Unit integration test results",
-                            "to": true,
                             body:"Test failed"
                         }
                       
