@@ -25,16 +25,18 @@ pipeline {
                     }
                     
                    post {
-                            success {
+                        success {
                             mail to :"himanipanday0008@gmail.com",
                             subject: "Unit integration tests results",
-                            body:"Test was successful"
-                            }    
+                            body:"Test was successful",
+                            attachLog: true
+                        }    
                             
                         failure {
                             mail to :"himanipanday0008@gmail.com",
                             subject: "Unit integration test results",
-                            body:"Test failed"
+                            body:"Test failed",
+                            attachLog: true
                         }
                       
                     
@@ -105,16 +107,18 @@ pipeline {
                     }
                     
                    post {
-                            success {
+                        success {
                             mail to :"himanipanday0008@gmail.com",
                             subject: "Results",
-                            body:" successful"
-                            }    
+                            body: "successful",
+                            attachLog: true
+                        }    
                             
                         failure {
                             mail to :"himanipanday0008@gmail.com",
                             subject: "Results",
-                            body:"failed"
+                            body: "failed",
+                            attachLog: true
                         }
                       
                     
